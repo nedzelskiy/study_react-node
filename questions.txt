@@ -1,0 +1,5 @@
+1. server side and browser side debug
+2. authorization, authentication, roles
+3. languages
+4. user certificates 509, https certificate
+5. websocket, signalR
