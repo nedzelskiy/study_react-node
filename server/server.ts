@@ -11,6 +11,15 @@ server
     res.statusCode = 200;
     if (req.url === '/favicon.ico') {
       return staticHandler(req, res);
+    } else if (req.url === '/builds/client.js') {
+      try {
+        const f = fs.readFileSync(path.join(__dirname, '../builds/client.js'), 'utf-8');
+        res.setHeader('Content-Type', 'text/javascript');
+        res.end(f.toString());
+      } catch (e) {
+        res.statusCode = 500;
+        res.end(e.toString());
+      }
     }
     try {
       const foo = new Foo('it works!');
